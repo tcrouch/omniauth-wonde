@@ -5,7 +5,7 @@ require "omniauth/wonde/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "omniauth-wonde"
-  spec.version       = Omniauth::Wonde::VERSION
+  spec.version       = OmniAuth::Wonde::VERSION
   spec.authors       = ["Tom Crouch"]
   spec.email         = ["tom.crouch@gmail.com"]
 

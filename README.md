@@ -1,4 +1,4 @@
-# Omniauth::Wonde
+# OmniAuth::Wonde
 
 Strategy to authenticate with Wonde via OAuth in OmniAuth.
 

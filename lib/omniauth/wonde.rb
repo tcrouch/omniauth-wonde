@@ -1,6 +1,6 @@
 require "omniauth/wonde/version"
 
-module Omniauth
+module OmniAuth
   module Wonde
     class Error < StandardError; end
     # Your code goes here...
