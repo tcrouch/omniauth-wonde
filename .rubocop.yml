@@ -6,3 +6,6 @@ AllCops:
 
 Layout/AlignArguments:
   EnforcedStyle: with_fixed_indentation
+Metrics/BlockLength:
+  Exclude:
+    - "spec/**/*.rb"

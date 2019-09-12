@@ -1,6 +1,6 @@
 # OmniAuth::Wonde
 
-Strategy to authenticate with Wonde via OAuth in OmniAuth.
+Strategy to authenticate with Wonde via OAuth2 in OmniAuth.
 
 ## Installation
 
