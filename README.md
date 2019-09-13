@@ -1,6 +1,7 @@
 # OmniAuth::Wonde
 
 [![Gem Version](https://img.shields.io/gem/v/omniauth-wonde.svg)](https://rubygems.org/gems/omniauth-wonde)
+[![Build Status](https://img.shields.io/travis/tcrouch/omniauth-wonde.svg)](https://travis-ci.org/tcrouch/omniauth-wonde)
 
 Strategy to authenticate with Wonde via OAuth2 in OmniAuth.
 
