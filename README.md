@@ -15,11 +15,15 @@ gem 'omniauth-wonde'
 
 And then execute:
 
-    $ bundle
+```
+$ bundle
+```
 
 Or install it yourself as:
 
-    $ gem install omniauth-wonde
+```
+$ gem install omniauth-wonde
+```
 
 ## Usage
 
