@@ -16,19 +16,88 @@ gem 'omniauth-wonde'
 
 And then execute:
 
-```
+```console
 $ bundle
 ```
 
 Or install it yourself as:
 
-```
+```console
 $ gem install omniauth-wonde
 ```
 
 ## Usage
 
-TODO: Write usage instructions here
+For example, adding middleware to a Rails app in `config/initializers/omniauth.rb`:
+
+```ruby
+Rails.application.config.middleware.use OmniAuth::Builder do
+  provider :wonde, ENV['WONDE_CLIENT_ID'], ENV['WONDE_CLIENT_SECRET']
+end
+```
+
+The OmniAuth Wonde URL is then accessible at: `/auth/wonde`
+
+### Devise
+
+Specify as a provider in `config/initializers/devise.rb`:
+
+```ruby
+  config.omniauth :wonde, ENV['WONDE_CLIENT_ID'], ENV['WONDE_CLIENT_SECRET']
+```
+
+### Configuration
+
+Additional configuration options can be provided as keyword arguments.
+
+- `redirect_uri:` specify a custom redirect URI
+
+## Auth hash
+
+Example of authentication hash available in `request.env['omniauth.auth']`:
+
+```ruby
+{
+  "provider" => "wonde",
+  "uid" => "A1000000000",
+  "info" => {
+    "name" => "John Schmidt",
+    "first_name" => "John",
+    "last_name" => "Schmidt",
+    "middle_names" => "Jacob Jingleheimer",
+    "school_name" => "Acorn Primary School",
+    "school_id" => "A1000000001",
+    "person_type" => "student",
+    "person_id" => "A100000002",
+    "upi" => "0d50e37c226a4c189404f2d0747f5839"
+  },
+  "credentials" => {
+    "token" => "[TOKEN]",
+    "refresh_token" => "[REFRESH_TOKEN]",
+    "expires_at" => 1496120719,
+    "expires" => true
+  },
+  "extra" => {
+    "raw_info" => {
+      "Me" => {
+        "id" => "A1000000000",
+        "Person" => {
+          "id" => "A100000002",
+          "type" => "student",
+          "forename" => "John",
+          "middle_names" => "Jacob Jingleheimer",
+          "surname" => "Schmidt",
+          "upi" => "0d50e37c226a4c189404f2d0747f5839",
+          "School" => {
+            "id" => "A1000000001",
+            "name" => "Acorn Primary School"
+          }
+        }
+      }
+    }
+  }
+}
+```
 
 ## Development
 
