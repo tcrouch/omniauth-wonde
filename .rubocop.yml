@@ -4,7 +4,7 @@ inherit_gem:
 AllCops:
   TargetRubyVersion: 2.6
 
-Layout/AlignArguments:
+Layout/ArgumentAlignment:
   EnforcedStyle: with_fixed_indentation
 Metrics/BlockLength:
   Exclude:
