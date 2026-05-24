@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'omniauth-oauth2'
+require "omniauth-oauth2"
 
 module OmniAuth
   module Strategies
@@ -44,7 +44,7 @@ module OmniAuth
       def self.user_query_body
         @user_query_body ||= begin
           gql = File.read(File.expand_path("user_data.graphql", __dir__))
-          { query: gql }.to_json
+          {query: gql}.to_json
         end
       end
 
@@ -68,7 +68,7 @@ module OmniAuth
       # POST to Wonde GraphQL API
       def fetch_user_info
         access_token.post(USER_INFO_URL) do |req|
-          req.headers['Content-Type'] = "application/json"
+          req.headers["Content-Type"] = "application/json"
           req.body = self.class.user_query_body
         end
       end
