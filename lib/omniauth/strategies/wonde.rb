@@ -9,6 +9,7 @@ module OmniAuth
     # Wonde implements OAuth 2 (three legged)
     class Wonde < OmniAuth::Strategies::OAuth2
       USER_INFO_URL = "https://api.wonde.com/graphql/me"
+      USER_QUERY_BODY = {query: File.read(File.expand_path("user_data.graphql", __dir__))}.to_json.freeze
 
       option :name, "wonde"
       option :provider_ignores_state, true
@@ -40,14 +41,6 @@ module OmniAuth
         )
       end
 
-      # @return [String] JSON string
-      def self.user_query_body
-        @user_query_body ||= begin
-          gql = File.read(File.expand_path("user_data.graphql", __dir__))
-          {query: gql}.to_json
-        end
-      end
-
       # @return [Hash]
       def raw_info
         @raw_info ||= begin
@@ -69,7 +62,7 @@ module OmniAuth
       def fetch_user_info
         access_token.post(USER_INFO_URL) do |req|
           req.headers["Content-Type"] = "application/json"
-          req.body = self.class.user_query_body
+          req.body = USER_QUERY_BODY
         end
       end
 
