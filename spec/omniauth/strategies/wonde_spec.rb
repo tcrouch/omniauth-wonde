@@ -51,7 +51,7 @@ RSpec.describe OmniAuth::Strategies::Wonde do
 
   describe "#callback_url" do
     context "with redirect_uri option" do
-      let(:options) { { redirect_uri: "https://example.com" } }
+      let(:options) { {redirect_uri: "https://example.com"} }
 
       it "returns redirect_uri" do
         expect(subject.callback_url)
@@ -72,7 +72,7 @@ RSpec.describe OmniAuth::Strategies::Wonde do
       end
 
       context "when given" do
-        let(:options) { { redirect_uri: "https://example.com" } }
+        let(:options) { {redirect_uri: "https://example.com"} }
 
         it "sets the redirect_uri" do
           expect(subject.authorize_params.redirect_uri)
