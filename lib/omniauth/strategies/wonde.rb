@@ -43,10 +43,7 @@ module OmniAuth
 
       # @return [Hash]
       def raw_info
-        @raw_info ||= begin
-          data = fetch_user_info.parsed || {}
-          data["data"] || {}
-        end
+        @raw_info ||= fetch_user_info.parsed&.dig("data") || {}
       end
 
       # @return [String]
