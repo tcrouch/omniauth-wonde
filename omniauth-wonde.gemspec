@@ -14,7 +14,7 @@ Gem::Specification.new do |spec|
   spec.homepage = "https://github.com/tcrouch/omniauth-wonde"
   spec.license = "MIT"
 
-  spec.files = Dir["lib/**/*", "*.gemspec", "LICENSE*", "README*"]
+  spec.files = Dir["lib/**/*", "*.gemspec", "CHANGELOG*", "LICENSE*", "README*"]
   spec.bindir = "exe"
   spec.executables = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
