@@ -1,0 +1,40 @@
+name: Ruby Gem
+
+on:
+  push:
+    tags: ["v*.*.*"]
+
+jobs:
+  push:
+    name: Push gem to RubyGems.org
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+          ruby-version: ruby
+
+      - name: Verify tag matches gem version
+        run: |
+          gem_version=$(ruby -r ./lib/omniauth/wonde/version.rb -e 'print OmniAuth::Wonde::VERSION')
+          tag_version="${GITHUB_REF_NAME#v}"
+          if [ "$gem_version" != "$tag_version" ]; then
+            echo "Tag $tag_version does not match gem version $gem_version" >&2
+            exit 1
+          fi
+
+      - uses: rubygems/configure-rubygems-credentials@v2.1.0
+
+      - name: Build gem
+        run: bundle exec rake build
+
+      - name: Publish to RubyGems
+        run: gem push pkg/*.gem
