@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-06-14
+
 ### Changed
 
 - Bumped minimum Ruby version to 3.0.0.
@@ -17,5 +19,6 @@
 
 - Initial release of the OmniAuth strategy for Wonde.
 
-[Unreleased]: https://github.com/tcrouch/omniauth-wonde/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/tcrouch/omniauth-wonde/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/tcrouch/omniauth-wonde/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/tcrouch/omniauth-wonde/releases/tag/v0.1.0
